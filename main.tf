@@ -1,12 +1,18 @@
 terraform {
   required_version = ">= 0.12"
+
+  required_providers {
+    google = {
+      version = ">=3.38"
+    }
+  }
 }
 
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = ">=3.38"
 }
+
 
 #------------------------#
 # Naming                 #
