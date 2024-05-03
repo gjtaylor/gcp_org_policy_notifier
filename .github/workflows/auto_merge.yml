@@ -5,15 +5,29 @@
 name: Auto-merge
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - labeled
+  workflow_run:
+    workflows: ['Auto-approve', 'Labeler']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      PR_NUMBER:
+        type: string
+
 
 jobs:
   pr-automation:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
     steps:
     - name: Auto merge if 'automerge' label exists
+
       uses: pascalgn/automerge-action@main
       env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST: ${{ github.event.inputs.PR_NUMBER }}
+          
