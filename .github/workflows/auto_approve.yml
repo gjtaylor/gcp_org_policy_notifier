@@ -5,16 +5,21 @@
 name: Auto-approve
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
+    branches:
+      - main
 
 jobs:
   pr-automation:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
     steps:
     - name: Auto approve PRs based on author
       uses: hmarr/auto-approve-action@v4.0.0
-      if: github.actor == 'scalesec-automation-bot'
+      if: github.actor == 'gjtaylor'
       with:
-        github-token: ${{ secrets.GH_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
