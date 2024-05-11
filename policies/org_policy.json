@@ -229,6 +229,13 @@
             "booleanConstraint": {}
         },
         {
+            "name": "constraints/compute.requireOsConfig",
+            "displayName": "Require OS Config",
+            "description": "This boolean constraint, when enforced, enables VM Manager (OS Config) on all new projects. All VM instances created in new projects will have VM Manager enabled. On new and existing projects, this constraint prevents metadata updates that disable VM Manager at the project or instance level. By default, VM Manager is disabled on Compute Engine projects.",
+            "constraintDefault": "ALLOW",
+            "booleanConstraint": {}
+        },
+        {
             "name": "constraints/compute.requireShieldedVm",
             "displayName": "Shielded VMs",
             "description": "This boolean constraint, when set to True, requires that all new Compute Engine VM instances use Shielded disk images with Secure Boot, vTPM, and Integrity Monitoring options enabled. Secure Boot can be disabled after creation, if desired. Existing running instances will continue to work as usual. By default, Shielded VM features do not need to be enabled in order to create Compute Engine VM instances. Shielded VM features add verifiable integrity and exfiltration resistance to your VMs.",
@@ -820,7 +827,7 @@
         {
             "name": "constraints/compute.disableSshInBrowser",
             "displayName": "Disable SSH-in-browser",
-            "description": "This boolean constraint disables the SSH-in-browser tool in the Cloud Console for VMs that use OS Login and App Engine Flexible Environment VMs. When enforced, the SSH-in-browser button is disabled. By default, using the SSH-in-browser tool is allowed.",
+            "description": "This boolean constraint disables the SSH-in-browser tool in the Cloud Console for VMs that use OS Login and App Engine flexible environment VMs. When enforced, the SSH-in-browser button is disabled. By default, using the SSH-in-browser tool is allowed.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -882,8 +889,8 @@
         },
         {
             "name": "constraints/compute.requireBasicQuotaInResponse",
-            "displayName": "Enable Region.List, Region.Get and Project.Get APIs to get basic quota info in response.",
-            "description": "This boolean constraint, when enforced, disables the fail-open behavior on server-side failures for Region.List, Region.Get, and Project.Get APIs. That means, if the quota information is unavailable, these APIs fail close when the constraint is enforced.By default, these APIs fail open on server-side failures and displays a warning message when the quota information is unavailable.",
+            "displayName": "Disable fail-open behavior for list methods that display quota information for a region",
+            "description": "This boolean constraint, when enforced, disables the fail-open behavior on server-side failures for regions.list, regions.get, and projects.get methods. That means that if the quota information is unavailable, these methods fail when the constraint is enforced. By default, these methods succeed on server-side failures and display a warning message when the quota information is unavailable.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         }
