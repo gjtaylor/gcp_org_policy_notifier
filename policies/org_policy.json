@@ -484,6 +484,13 @@
             "listConstraint": {}
         },
         {
+            "name": "constraints/storage.softDeletePolicySeconds",
+            "displayName": "Cloud Storage - soft delete policy retention duration in seconds",
+            "description": "This constraint defines the allowable retention durations for soft delete policies set on Cloud Storage buckets where this constraint is enforced. Any insert, update, or patch operation on a bucket where this constraint is enforced must have a soft delete policy duration that matches the constraint. When a new organization policy is enforced, the soft delete policy of existing buckets remains unchanged and valid. By default, if no organization policy is specified, a Cloud Storage bucket can have a soft delete policy of any duration.",
+            "constraintDefault": "ALLOW",
+            "listConstraint": {}
+        },
+        {
             "name": "constraints/storage.restrictAuthTypes",
             "displayName": "Cloud Storage - restrict authentication types",
             "description": "The constraint defines the set of authentication types that would be restricted from accessing any storage resources under the organization in Cloud Storage. Supported values are USER_ACCOUNT_HMAC_SIGNED_REQUESTS and SERVICE_ACCOUNT_HMAC_SIGNED_REQUESTS. Use in:ALL_HMAC_SIGNED_REQUESTS to include both.",
@@ -841,14 +848,14 @@
         {
             "name": "constraints/commerceorggovernance.marketplaceServices",
             "displayName": "Restrict access on marketplace services",
-            "description": "This list constraint defines the set of services allowed for marketplace organizations, and can only include values from the list below: [PRIVATE_MARKETPLACE, IAAS_PROCUREMENT]. If PRIVATE_MARKETPLACE is in the allowed value list, the private marketplace is enabled. If the IAAS_PROCUREMENT is in the allowed value list, the IaaS procurement governance experience is enabled for all products. By default, the private marketplace is disabled and the IaaS procurement governance experience is disabled. Also, the IAAS_PROCUREMENT policy works independently from the Request Procurement governance capability, which is specifically for SaaS products listed on the marketplace.",
+            "description": "This list constraint defines the set of services allowed for marketplace organizations, and can only include values from the list below: [PRIVATE_MARKETPLACE, IAAS_PROCUREMENT]. If PRIVATE_MARKETPLACE is in the allowed value list, Google Private Marketplace is turned on. If the IAAS_PROCUREMENT is in the allowed value list, the IaaS procurement governance experience is enabled for all products. By default, Google Private Marketplace is turned off and the IaaS procurement governance experience is turned off. Also, the IAAS_PROCUREMENT policy works independently from the Request Procurement governance capability, which is specifically for SaaS products listed on the marketplace.Important: To turn on Google Private Marketplace, see https://cloud.google.com//marketplace/docs/governance/enable-private-marketplace. To avoid configuration issues, don't manually include PRIVATE_MARKETPLACE in the list constraint.",
             "constraintDefault": "DENY",
             "listConstraint": {}
         },
         {
             "name": "constraints/commerceorggovernance.disablePublicMarketplace",
-            "displayName": "Disable Public Marketplace",
-            "description": "This boolean constraint, when enforced, disables public marketplace for all users under the org. By default, public marketplace access is enabled for the org.",
+            "displayName": "Disable public marketplace",
+            "description": "This boolean constraint, when enforced, turns off {{marketplace_name}} for all users under the organization. By default, public marketplace access is turned on for the organization.Caution: We strongly recommend that you don't enforce this organization policy unless you've turned on Google Private Marketplace. If you've turned off Google Private Marketplace, and you enforce this organization policy, it will have no effect.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
