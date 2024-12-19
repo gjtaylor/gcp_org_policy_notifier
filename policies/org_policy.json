@@ -930,6 +930,12 @@
             "listConstraint": {}
         },
         {
+            "name": "constraints/iam.managed.allowedPolicyMembers",
+            "displayName": "Restrict Allowed Policy Members in IAM Allow Policies",
+            "description": "This constraint defines the set of members that can be granted IAM roles in your organization. You can specify the allowed members by specifying an organization principalSet or by specifying individual members. Specifying an organization principalSet allows all identities that are associated with that organization (including Workspace accounts, Workspace groups, service accounts, workforce pool identities, workload pool identities, and service agents) to be granted roles in your organization. Your organization principalSet is not added automatically. To ensure that identities from your organization can be added to allow policies in your organization, you must specify your organization as one of the allowed principal sets. Specifying individual members allows only those members (and associated aliases) to be granted roles in your organization. When you specify individual users, you must include the principal type prefix (for example, 'user:' or 'serviceAccount:').",
+            "constraintDefault": "ALLOW"
+        },
+        {
             "name": "constraints/iam.managed.preventPrivilegedBasicRolesForDefaultServiceAccounts",
             "displayName": "Prevent Privileged Basic Roles for Default Service Accounts",
             "description": "When this constraint is enforced, it prevents anyone from granting the Editor role (roles/editor) or the Owner role (roles/owner) to the Compute Engine and App Engine default service accounts, at any time. To learn more about default service accounts, see https://cloud.google.com/iam/help/service-accounts/default. Enforcing this constraint prevents the default service accounts from automatically being granted the Editor role (roles/editor). This might cause permission issues for services that use these service accounts. To learn which roles to grant to each service account, see https://cloud.google.com/iam/help/service-accounts/troubleshoot-roles-default.",
