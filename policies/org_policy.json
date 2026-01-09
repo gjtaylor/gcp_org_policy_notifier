@@ -38,7 +38,7 @@
         {
             "name": "constraints/ainotebooks.requireAutoUpgradeSchedule",
             "displayName": "Require automatic scheduled upgrades on new Vertex AI Workbench user-managed notebooks and instances",
-            "description": "This boolean constraint, when enforced, requires that newly created Vertex AI Workbench user-managed notebooks and instances have an automatic upgrade schedule set. The automatic upgrade schedule can be defined by using the `notebook-upgrade-schedule` metadata flag to specify a cron schedule for the automatic upgrades. For example: `--metadata=notebook-upgrade-schedule=\"00 19 * * MON\"`.",
+            "description": "This boolean constraint, when enforced, requires that newly created Vertex AI Workbench user-managed notebooks and instances have an automatic upgrade schedule set. The automatic upgrade schedule can be defined by using the notebook-upgrade-schedule metadata flag to specify a cron schedule for the automatic upgrades. For example: --metadata=notebook-upgrade-schedule=\"00 19 * * MON\".",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -75,14 +75,14 @@
         {
             "name": "constraints/bigquery.disableBQOmniAWS",
             "displayName": "Disable BigQuery Omni for Cloud AWS",
-            "description": "This boolean constraint, when set to True, will disable users from using BigQuery Omni to process data on Amazon Web Services where this constraint is enforced.",
+            "description": "This boolean constraint, when enforced, will disable users from using BigQuery Omni to process data on Amazon Web Services where this constraint is enforced.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/bigquery.disableBQOmniAzure",
             "displayName": "Disable BigQuery Omni for Cloud Azure",
-            "description": "This boolean constraint, when set to True, will disable users from using BigQuery Omni to process data on Microsoft Azure where this constraint is enforced.",
+            "description": "This boolean constraint, when enforced, will disable users from using BigQuery Omni to process data on Microsoft Azure where this constraint is enforced.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -203,7 +203,7 @@
         {
             "name": "constraints/compute.disableSerialPortAccess",
             "displayName": "Disable VM serial port access",
-            "description": "This boolean constraint disables serial port access to Compute Engine VMs belonging to the organization, project, or folder where this constraint is set to True. By default, customers can enable serial port access for Compute Engine VMs on a per-VM or per-project basis using metadata attributes. Enforcing this constraint will disable serial port access for Compute Engine VMs, regardless of the metadata attributes.",
+            "description": "This boolean constraint disables serial port access to Compute Engine VMs belonging to the organization, project, or folder where this constraint is enforced. By default, customers can enable serial port access for Compute Engine VMs on a per-VM or per-project basis using metadata attributes. Enforcing this constraint will disable serial port access for Compute Engine VMs, regardless of the metadata attributes.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -217,28 +217,28 @@
         {
             "name": "constraints/compute.disableInstanceDataAccessApis",
             "displayName": "Disable Instance Data Access APIs",
-            "description": "Do not configure or modify this policy. This constraint is automatically configured during Assured Workloads onboarding and is only intended for advanced regulatory control for Assured Workloads. This boolean constraint, when enforced, will disable the GetSerialPortOutput and GetScreenshot APIs that access VM's serial port output and capture screen shot from VM UIs.",
+            "description": "Do not configure or modify this policy. This constraint is automatically configured during Assured Workloads onboarding and is only intended for advanced regulatory control for Assured Workloads. This boolean constraint, when enforced, will disable the GetSerialPortOutput and GetScreenshot APIs that access VMs serial port output and capture screenshots from VM UIs.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/compute.disableGuestAttributesAccess",
             "displayName": "Disable Guest Attributes of Compute Engine metadata",
-            "description": "This boolean constraint disables Compute Engine API access to the Guest Attributes of Compute Engine VMs belonging to the organization, project, or folder where this constraint is set to True. By default, the Compute Engine API can be used to access Compute Engine VM guest attributes.",
+            "description": "This boolean constraint disables Compute Engine API access to the Guest Attributes of Compute Engine VMs belonging to the organization, project, or folder where this constraint is enforced. By default, the Compute Engine API can be used to access Compute Engine VM guest attributes.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/compute.restrictXpnProjectLienRemoval",
             "displayName": "Restrict shared VPC project lien removal",
-            "description": "This boolean constraint restricts the set of users that can remove a Shared VPC host project lien without organization-level permission where this constraint is set to True. By default, any user with the permission to update liens can remove a Shared VPC host project lien. Enforcing this constraint requires that permission be granted at the organization level.",
+            "description": "This boolean constraint restricts the set of users that can remove a Shared VPC host project lien without organization-level permission where this constraint is enforced. By default, any user with the permission to update liens can remove a Shared VPC host project lien. Enforcing this constraint requires that permission be granted at the organization level.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/compute.requireOsLogin",
             "displayName": "Require OS Login",
-            "description": "This boolean constraint, when set to true, enables OS Login on all newly created Projects. All VM instances created in new projects will have OS Login enabled. On new and existing projects, this constraint prevents metadata updates that disable OS Login at the project or instance level. By default, the OS Login feature is disabled on Compute Engine projects.GKE instances in private clusters running node pool versions 1.20.5-gke.2000 and later support OS Login. GKE instances in public clusters do not currently support OS Login. If this constraint is applied to a Project running public clusters, GKE instances running in that Project may not function properly.",
+            "description": "This boolean constraint, when enforced, enables OS Login on all newly created Projects. All VM instances created in new projects will have OS Login enabled. On new and existing projects, this constraint prevents metadata updates that disable OS Login at the project or instance level. By default, the OS Login feature is disabled on Compute Engine projects.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -252,7 +252,7 @@
         {
             "name": "constraints/compute.requireShieldedVm",
             "displayName": "Shielded VMs",
-            "description": "This boolean constraint, when set to True, requires that all new Compute Engine VM instances use Shielded disk images with Secure Boot, vTPM, and Integrity Monitoring options enabled. Secure Boot can be disabled after creation, if desired. Existing running instances will continue to work as usual. By default, Shielded VM features do not need to be enabled in order to create Compute Engine VM instances. Shielded VM features add verifiable integrity and exfiltration resistance to your VMs.",
+            "description": "This boolean constraint, when enforced, requires that all new Compute Engine VM instances use Shielded disk images with Secure Boot, vTPM, and Integrity Monitoring options enabled. Secure Boot can be disabled after creation, if desired. Existing running instances will continue to work as usual. By default, Shielded VM features do not need to be enabled in order to create Compute Engine VM instances. Shielded VM features add verifiable integrity and exfiltration resistance to your VMs.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -266,7 +266,7 @@
         {
             "name": "constraints/compute.setNewProjectDefaultToZonalDNSOnly",
             "displayName": "Sets the internal DNS setting for new projects to Zonal DNS Only",
-            "description": "When set to `True`, newly created projects will use Zonal DNS as default. By default, this constraint is set to `False` and newly created projects will be using the default DNS type.",
+            "description": "When enforced, newly created projects will use Zonal DNS as default. By default, this constraint is set to False and newly created projects will be using the default DNS type.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -289,7 +289,7 @@
         {
             "name": "constraints/compute.vmExternalIpAccess",
             "displayName": "Define allowed external IPs for VM instances",
-            "description": "This list constraint defines the set of Compute Engine VM instances that are allowed to use external IP addresses. By default, all VM instances are allowed to use external IP addresses. The allowed/denied list of VM instances must be identified by the VM instance name, in the form: projects/PROJECT_ID/zones/ZONE/instances/INSTANCE ",
+            "description": "This list constraint defines the set of Compute Engine VM instances that are allowed to use external IPv4 addresses. This constraint doesn't restrict the use of IPv6 addresses. By default, all VM instances are allowed to use external IPv4 and IPv6 addresses. The allowed/denied list of VM instances must be identified by the VM instance name, in the form: projects/PROJECT_ID/zones/ZONE/instances/INSTANCE ",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -324,7 +324,7 @@
         {
             "name": "constraints/gcp.restrictCmekCryptoKeyProjects",
             "displayName": "Restrict which projects may supply KMS CryptoKeys for CMEK",
-            "description": "This list constraint defines which projects may be used to supply Customer-Managed Encryption Keys (CMEK) when creating resources. Setting this constraint to Allow (i.e. only allow CMEK keys from these projects) ensures that CMEK keys from other projects cannot be used to protect newly created resources. Values for this constraint must be specified in the form of under:organizations/ORGANIZATION_ID, under:folders/FOLDER_ID, or projects/PROJECT_ID. Supported services that enforce this constraint are: [aiplatform.googleapis.com, alloydb.googleapis.com, apigee.googleapis.com, artifactregistry.googleapis.com, bigquery.googleapis.com, bigquerydatatransfer.googleapis.com, bigtable.googleapis.com, cloudfunctions.googleapis.com, cloudtasks.googleapis.com, composer.googleapis.com, compute.googleapis.com, container.googleapis.com, dataflow.googleapis.com, dataform.googleapis.com, datafusion.googleapis.com, dataplex.googleapis.com, dataproc.googleapis.com, discoveryengine.googleapis.com, documentai.googleapis.com, eventarc.googleapis.com, file.googleapis.com, firestore.googleapis.com, integrations.googleapis.com, logging.googleapis.com, looker.googleapis.com, notebooks.googleapis.com, pubsub.googleapis.com, redis.googleapis.com, run.googleapis.com, secretmanager.googleapis.com, securesourcemanager.googleapis.com, spanner.googleapis.com, speech.googleapis.com, sqladmin.googleapis.com, storage.googleapis.com, workstations.googleapis.com]. Enforcement of this constraint may grow over time to include additional services. Use caution when applying this constraint to projects, folders, or organizations where a mix of supported and unsupported services are used. Setting this constraint to Deny or Deny All is not permitted. Enforcement of this constraint is not retroactive. Existing CMEK Google Cloud resources with KMS CryptoKeys from disallowed projects must be reconfigured or recreated manually to ensure enforcement.",
+            "description": "This list constraint defines which projects may be used to supply Customer-Managed Encryption Keys (CMEK) when creating resources. Setting this constraint to Allow (i.e. only allow CMEK keys from these projects) ensures that CMEK keys from other projects cannot be used to protect newly created resources. Values for this constraint must be specified in the form of under:organizations/ORGANIZATION_ID, under:folders/FOLDER_ID, or projects/PROJECT_ID. Supported services that enforce this constraint are: [aiplatform.googleapis.com, alloydb.googleapis.com, apigee.googleapis.com, artifactregistry.googleapis.com, bigquery.googleapis.com, bigquerydatatransfer.googleapis.com, bigtable.googleapis.com, cloudfunctions.googleapis.com, cloudscheduler.googleapis.com, cloudtasks.googleapis.com, composer.googleapis.com, compute.googleapis.com, contactcenterinsights.googleapis.com, container.googleapis.com, dataflow.googleapis.com, dataform.googleapis.com, datafusion.googleapis.com, dataplex.googleapis.com, dataproc.googleapis.com, dialogflow.googleapis.com, discoveryengine.googleapis.com, documentai.googleapis.com, eventarc.googleapis.com, file.googleapis.com, firestore.googleapis.com, gkebackup.googleapis.com, integrations.googleapis.com, logging.googleapis.com, looker.googleapis.com, netapp.googleapis.com, notebooks.googleapis.com, pubsub.googleapis.com, redis.googleapis.com, run.googleapis.com, secretmanager.googleapis.com, securesourcemanager.googleapis.com, securitycenter.googleapis.com, spanner.googleapis.com, speech.googleapis.com, sqladmin.googleapis.com, storage.googleapis.com, workstations.googleapis.com]. Enforcement of this constraint may grow over time to include additional services. Use caution when applying this constraint to projects, folders, or organizations where a mix of supported and unsupported services are used. Setting this constraint to Deny or Deny All is not permitted. Enforcement of this constraint is not retroactive. Existing CMEK Google Cloud resources with KMS CryptoKeys from disallowed projects must be reconfigured or recreated manually to ensure enforcement.",
             "constraintDefault": "ALLOW",
             "listConstraint": {
                 "supportsUnder": true
@@ -333,14 +333,14 @@
         {
             "name": "constraints/gcp.restrictNonCmekServices",
             "displayName": "Restrict which services may create resources without CMEK",
-            "description": "This list constraint defines which services require Customer-Managed Encryption Keys (CMEK). Setting this constraint to Deny (i.e. deny resource creation without CMEK) requires that, for the specified services, newly created resources must be protected by a CMEK key. Supported services that can be set in this constraint are: [aiplatform.googleapis.com, alloydb.googleapis.com, apigee.googleapis.com, artifactregistry.googleapis.com, bigquery.googleapis.com, bigquerydatatransfer.googleapis.com, bigtable.googleapis.com, cloudfunctions.googleapis.com, cloudtasks.googleapis.com, composer.googleapis.com, compute.googleapis.com, container.googleapis.com, dataflow.googleapis.com, dataform.googleapis.com, datafusion.googleapis.com, dataplex.googleapis.com, dataproc.googleapis.com, discoveryengine.googleapis.com, documentai.googleapis.com, eventarc.googleapis.com, file.googleapis.com, firestore.googleapis.com, integrations.googleapis.com, logging.googleapis.com, looker.googleapis.com, notebooks.googleapis.com, pubsub.googleapis.com, redis.googleapis.com, run.googleapis.com, secretmanager.googleapis.com, securesourcemanager.googleapis.com, spanner.googleapis.com, speech.googleapis.com, sqladmin.googleapis.com, storage.googleapis.com, storagetransfer.googleapis.com, workstations.googleapis.com]. Setting this constraint to Deny All is not permitted. Setting this constraint to Allow is not permitted. Enforcement of this constraint is not retroactive. Existing non-CMEK Google Cloud resources must be reconfigured or recreated manually to ensure enforcement.",
+            "description": "This list constraint defines which services require Customer-Managed Encryption Keys (CMEK). Setting this constraint to Deny (i.e. deny resource creation without CMEK) requires that, for the specified services, newly created resources must be protected by a CMEK key. Supported services that can be set in this constraint are: [aiplatform.googleapis.com, alloydb.googleapis.com, apigee.googleapis.com, artifactregistry.googleapis.com, bigquery.googleapis.com, bigquerydatatransfer.googleapis.com, bigtable.googleapis.com, cloudfunctions.googleapis.com, cloudscheduler.googleapis.com, cloudtasks.googleapis.com, composer.googleapis.com, compute.googleapis.com, contactcenterinsights.googleapis.com, container.googleapis.com, dataflow.googleapis.com, dataform.googleapis.com, datafusion.googleapis.com, dataplex.googleapis.com, dataproc.googleapis.com, dialogflow.googleapis.com, discoveryengine.googleapis.com, documentai.googleapis.com, eventarc.googleapis.com, file.googleapis.com, firestore.googleapis.com, gkebackup.googleapis.com, integrations.googleapis.com, logging.googleapis.com, looker.googleapis.com, netapp.googleapis.com, notebooks.googleapis.com, pubsub.googleapis.com, redis.googleapis.com, run.googleapis.com, secretmanager.googleapis.com, securesourcemanager.googleapis.com, securitycenter.googleapis.com, spanner.googleapis.com, speech.googleapis.com, sqladmin.googleapis.com, storage.googleapis.com, storagetransfer.googleapis.com, workstations.googleapis.com]. Setting this constraint to Deny All is not permitted. Setting this constraint to Allow is not permitted. Enforcement of this constraint is not retroactive. Existing non-CMEK Google Cloud resources must be reconfigured or recreated manually to ensure enforcement.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
         {
             "name": "constraints/iam.allowedPolicyMemberDomains",
             "displayName": "Domain restricted sharing",
-            "description": "This list constraint defines one or more Cloud Identity or Google Workspace customer IDs whose principals can be added to IAM policies. By default, all user identities are allowed to be added to IAM policies. Only allowed values can be defined in this constraint, denied values are not supported. If this constraint is active, only principals that belong to the allowed customer IDs can be added to IAM policies.You do not need to add the google.com customer ID to this list in order to interoperate with Google services. Adding google.com allows sharing with Google employees and non-production systems, and should only be used for sharing data with Google employees.",
+            "description": "This list constraint defines the organization principal sets and Google Workspace customer IDs whose principals can be added to IAM policies. By default, all user identities are allowed to be added to IAM policies. Only allowed values can be defined in this constraint, denied values are not supported. All domains associated with a Google Workspace account or the principal set listed in the allowed_values will be allowed by the organization policy. All other domains will be blocked by the organization policy. You do not need to add the google.com customer ID to this list in order to interoperate with Google services. Adding google.com allows sharing with Google employees and non-production systems, and should only be used for sharing data with Google employees.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -354,14 +354,14 @@
         {
             "name": "constraints/iam.disableServiceAccountKeyUpload",
             "displayName": "Disable Service Account Key Upload",
-            "description": "This boolean constraint disables the feature that allows uploading public keys to service accounts where this constraint is set to `True`. By default, users can upload public keys to service accounts based on their Cloud IAM roles and permissions.",
+            "description": "This boolean constraint disables the feature that allows uploading public keys to service accounts where this constraint is enforced. By default, users can upload public keys to service accounts based on their Cloud IAM roles and permissions.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/iam.disableServiceAccountCreation",
             "displayName": "Disable service account creation",
-            "description": "This boolean constraint disables the creation of service accounts where this constraint is set to `True`. By default, service accounts can be created by users based on their Cloud IAM roles and permissions.",
+            "description": "This boolean constraint disables the creation of service accounts where this constraint is enforced. By default, service accounts can be created by users based on their Cloud IAM roles and permissions.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -405,7 +405,7 @@
         {
             "name": "constraints/resourcemanager.allowedImportSources",
             "displayName": "Allowed Sources for Importing Resources",
-            "description": "This list constraint defines the set of external Organizations from which resources can be imported, and denies all moves from all other Organizations. By default, resources cannot be moved between Organizations. If this constraint is applied to a resource, imported resources directly under this resource must be explicitly allowed by this constraint. Moves within an Organization are not governed by this constraint. The move operation will still require the same IAM permissions as normal resource moves. Values specified in allow/deny lists must be in the form: under:organizations/ORGANIZATION_ID.",
+            "description": "This list constraint defines the set of external organizations from which resources can be imported, and denies all moves from all other organizations. By default, resources cannot be moved between organizations. If this constraint is applied to a resource, imported resources directly under this resource must be explicitly allowed by this constraint. Moves within an organization or from outside an organization into an organization aren't governed by this constraint. The move operation will still require the same IAM permissions as normal resource moves. Values specified in allow/deny lists must be in the form: under:organizations/ORGANIZATION_ID.",
             "constraintDefault": "DENY",
             "listConstraint": {
                 "supportsUnder": true
@@ -444,7 +444,7 @@
         {
             "name": "constraints/run.allowedBinaryAuthorizationPolicies",
             "displayName": "Allowed Binary Authorization Policies (Cloud Run)",
-            "description": "This list constraint defines the set of Binary Authorization policy names that are allowed to be specified on a Cloud Run resource. To allow/disallow a default policy, use the value `default`. To allow/disallow one or more custom platform policies, the resource ID of each such policy must be added separately.",
+            "description": "This list constraint defines the set of Binary Authorization policy names that are allowed to be specified on a Cloud Run resource. To allow/disallow a default policy, use the value default. To allow/disallow one or more custom platform policies, the resource ID of each such policy must be added separately.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -458,14 +458,14 @@
         {
             "name": "constraints/sql.restrictAuthorizedNetworks",
             "displayName": "Restrict Authorized Networks on Cloud SQL instances",
-            "description": "This boolean constraint restricts adding Authorized Networks for unproxied database access to Cloud SQL instances where this constraint is set to True. This constraint is not retroactive, Cloud SQL instances with existing Authorized Networks will still work even after this constraint is enforced. By default, Authorized Networks can be added to Cloud SQL instances.",
+            "description": "This boolean constraint restricts adding Authorized Networks for unproxied database access to Cloud SQL instances where this constraint is enforced. This constraint is not retroactive, Cloud SQL instances with existing Authorized Networks will still work even after this constraint is enforced. By default, Authorized Networks can be added to Cloud SQL instances.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/sql.restrictPublicIp",
             "displayName": "Restrict Public IP access on Cloud SQL instances",
-            "description": "This boolean constraint restricts configuring Public IP on Cloud SQL instances where this constraint is set to True. This constraint is not retroactive, Cloud SQL instances with existing Public IP access will still work even after this constraint is enforced. By default, Public IP access is allowed to Cloud SQL instances.",
+            "description": "This boolean constraint restricts configuring Public IP on Cloud SQL instances where this constraint is enforced. This constraint is not retroactive, Cloud SQL instances with existing Public IP access will still work even after this constraint is enforced. By default, Public IP access is allowed to Cloud SQL instances.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -507,14 +507,14 @@
         {
             "name": "constraints/storage.restrictAuthTypes",
             "displayName": "Cloud Storage - restrict authentication types",
-            "description": "The constraint defines the set of authentication types that would be restricted from accessing any storage resources under the organization in Cloud Storage. Supported values are USER_ACCOUNT_HMAC_SIGNED_REQUESTS and SERVICE_ACCOUNT_HMAC_SIGNED_REQUESTS. Use in:ALL_HMAC_SIGNED_REQUESTS to include both.",
+            "description": "The constraint defines the set of authentication types that would be restricted from accessing any storage resources under the organization in Cloud Storage. Supported values are USER_ACCOUNT_HMAC_SIGNED_REQUESTS, SERVICE_ACCOUNT_HMAC_SIGNED_REQUESTS, and RSA_SIGNED_REQUESTS. Use in:ALL_HMAC_SIGNED_REQUESTS to include user account and service account HMAC signed requests. Use in:ALL_SIGNED_REQUESTS to include HMAC and RSA signed requests.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
         {
             "name": "constraints/compute.skipDefaultNetworkCreation",
             "displayName": "Skip default network creation",
-            "description": "This boolean constraint skips the creation of the default network and related resources during Google Cloud Platform Project resource creation where this constraint is set to True. By default, a default network and supporting resources are automatically created when creating a Project resource.",
+            "description": "This boolean constraint skips the creation of the default network and related resources during Google Cloud Platform Project resource creation where this constraint is enforced. By default, a default network and supporting resources are automatically created when creating a Project resource.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -566,7 +566,7 @@
         {
             "name": "constraints/compute.restrictCrossProjectServices",
             "displayName": "Restrict cross-project backend buckets and backend services",
-            "description": "This list constraint limits BackendBucket and BackendService resources that a urlMap resource can attach to. This constraint does not apply to BackendBuckets and BackendServices within the same project as the urlMap resource. By default, a urlMap resource in one project can reference compatible backendBuckets and BackendServices from other projects in the same organization as long as the user has compute.backendService.use, compute.regionBackendServices.use or compute.backendBuckets.use permission. We recommend not using this constraint with the compute.restrictSharedVpcBackendServices constraint to avoid conflicts. Projects, folders, and organization resources in allowed or denied lists affect all BackendBuckets and BackendServices underneath them in the resource hierarchy. Only projects, folders, and organization resources can be included in the allowed or denied list, and must be specified in the form: [under:organizations/ORGANIZATION_ID, under:folders/FOLDER_ID, under:projects/PROJECT_ID, projects/PROJECT_ID/regions/REGION/backendbuckets/BACKEND_BUCKET_NAME, projects/PROJECT_ID/global/backendbuckets/BACKEND_BUCKET_NAME, projects/PROJECT_ID/regions/REGION/backendservices/BACKEND_SERVICE_NAME, projects/PROJECT_ID/global/backendservices/BACKEND_SERVICE_NAME",
+            "description": "This list constraint limits backend bucket and backend service resources that a urlMap resource can attach to. This constraint does not apply to backend buckets and backend services within the same project as the urlMap resource. By default, a urlMap resource in one project can reference compatible backend buckets and backend services from other projects in the same organization as long as the user has compute.backendService.use, compute.regionBackendServices.use or compute.backendBuckets.use permission. We recommend not using this constraint with the compute.restrictSharedVpcBackendServices constraint to avoid conflicts. Projects, folders, and organization resources in allowed or denied lists affect all backend buckets and backend services underneath them in the resource hierarchy. Only projects, folders, and organization resources can be included in the allowed or denied list, and must be specified in the form: [under:organizations/ORGANIZATION_ID, under:folders/FOLDER_ID, under:projects/PROJECT_ID, projects/PROJECT_ID/regions/REGION/backendBuckets/BACKEND_BUCKET_NAME, projects/PROJECT_ID/global/backendBuckets/BACKEND_BUCKET_NAME, projects/PROJECT_ID/regions/REGION/backendServices/BACKEND_SERVICE_NAME, projects/PROJECT_ID/global/backendServices/BACKEND_SERVICE_NAME",
             "constraintDefault": "ALLOW",
             "listConstraint": {
                 "supportsUnder": true
@@ -582,7 +582,7 @@
         {
             "name": "constraints/compute.restrictLoadBalancerCreationForTypes",
             "displayName": "Restrict Load Balancer Creation Based on Load Balancer Types",
-            "description": "This list constraint defines the set of load balancer types which can be created for an organization, folder, or project. Every load balancer type to be allowed or denied must be listed explicitly. By default, creation of all types of load balancers is allowed. The list of allowed or denied values must be identified as the string name of a load balancer, and can only include values from the list below: [INTERNAL_TCP_UDP, INTERNAL_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_TCP_PROXY, REGIONAL_INTERNAL_MANAGED_TCP_PROXY, EXTERNAL_NETWORK_TCP_UDP, EXTERNAL_TCP_PROXY, EXTERNAL_SSL_PROXY, EXTERNAL_HTTP_HTTPS, EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_TCP_PROXY, GLOBAL_EXTERNAL_MANAGED_SSL_PROXY]. , REGIONAL_EXTERNAL_MANAGED_TCP_PROXY To include all internal or all external load balancer types, use the in: prefix followed by INTERNAL or EXTERNAL. For example, allowing in:INTERNAL will allow all load balancer types from the above list that include INTERNAL.",
+            "description": "This list constraint defines the set of load balancer types which can be created for an organization, folder, or project. Every load balancer type to be allowed or denied must be listed explicitly. By default, creation of all types of load balancers is allowed. The list of allowed or denied values must be identified as the string name of a load balancer, and can only include values from the list below: [INTERNAL_TCP_UDP, INTERNAL_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_TCP_PROXY, REGIONAL_INTERNAL_MANAGED_TCP_PROXY, EXTERNAL_NETWORK_TCP_UDP, EXTERNAL_TCP_PROXY, EXTERNAL_SSL_PROXY, EXTERNAL_HTTP_HTTPS, EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_TCP_PROXY, GLOBAL_EXTERNAL_MANAGED_SSL_PROXY]. , REGIONAL_EXTERNAL_MANAGED_TCP_PROXY To include all internal or all external load balancer types, use the in: prefix followed by INTERNAL or EXTERNAL. For example, allowing in:INTERNAL will allow all load balancer types from the above list that include INTERNAL. For more information about restricting load balancer types, see https://cloud.google.com/load-balancing/docs/org-policy-constraints.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -655,7 +655,7 @@
         {
             "name": "constraints/iam.disableWorkloadIdentityClusterCreation",
             "displayName": "Disable Workload Identity Cluster Creation",
-            "description": "This boolean constraint, when set to `True`, requires that all new GKE clusters have Workload Identity disabled at creation time. Existing GKE clusters with Workload Identity already enabled will continue to work as usual. By default, Workload Identity can be enabled for any GKE cluster.",
+            "description": "This boolean constraint, when enforced, requires that all new GKE clusters have Workload Identity disabled at creation time. Existing GKE clusters with Workload Identity already enabled will continue to work as usual. By default, Workload Identity can be enabled for any GKE cluster.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -669,7 +669,7 @@
         {
             "name": "constraints/gcp.detailedAuditLoggingMode",
             "displayName": "Google Cloud Platform - Detailed Audit Logging Mode",
-            "description": "When Detailed Audit Logging Mode is enforced, both the request and response are included in Cloud Audit Logs. Changes to this feature may take up to 10 minutes to reflect. This Org Policy is highly encouraged in coordination with Bucket Lock when seeking compliances such as SEC Rule 17a-4(f), CFTC Rule 1.31(c)-(d), and FINRA Rule 4511(c). This policy is currently only supported in Cloud Storage.",
+            "description": "When Detailed Audit Logging Mode is enforced, both the request and response are included in Cloud Audit Logs. Changes to this feature may take up to 10 minutes to reflect. This Org Policy is highly encouraged in coordination with Bucket Lock when seeking compliance with standards such as SEC Rule 17a-4(f), CFTC Rule 1.31(c)-(d), and FINRA Rule 4511(c). This policy is currently only supported in Cloud Storage.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -743,7 +743,7 @@
         {
             "name": "constraints/compute.disableVpcInternalIpv6",
             "displayName": "Disable VPC Internal IPv6 usage",
-            "description": "This boolean constraint, when set to True, disables the creation of or update to subnetworks with a stack_type of IPV4_IPV6 and ipv6_access_type of INTERNAL. By default, anyone with appropriate Cloud IAM permissions can create or update subnetworks with stack_type of IPV4_IPV6 in any projects, folders, and organizations.",
+            "description": "This boolean constraint, when enforced, disables the creation of or update to subnetworks with a stack_type of IPV4_IPV6 and ipv6_access_type of INTERNAL. By default, anyone with appropriate Cloud IAM permissions can create or update subnetworks with stack_type of IPV4_IPV6 in any projects, folders, and organizations.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -757,14 +757,14 @@
         {
             "name": "constraints/compute.disableVpcExternalIpv6",
             "displayName": "Disable VPC External IPv6 usage",
-            "description": "This boolean constraint, when set to True, disables the creation of or update to subnetworks with a stack_type of IPV4_IPV6 and ipv6_access_type of EXTERNAL. By default, anyone with appropriate Cloud IAM permissions can create or update subnetworks with stack_type of IPV4_IPV6 in any projects, folders, and organizations.",
+            "description": "This boolean constraint, when enforced, disables the creation of or update to subnetworks with a stack_type of IPV4_IPV6 and ipv6_access_type of EXTERNAL. By default, anyone with appropriate Cloud IAM permissions can create or update subnetworks with stack_type of IPV4_IPV6 in any projects, folders, and organizations.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
         {
             "name": "constraints/compute.disableAllIpv6",
             "displayName": "Disable All IPv6 usage",
-            "description": "This boolean constraint, when set to True, disables the creation of or update to any Google Compute Engine resources involved in IPv6 usage. By default, anyone with appropriate Cloud IAM permissions can create or update Google Compute Engine resources with IPv6 usage in any projects, folders, and organizations. If set, this constraint will have higher priority than other IPv6 org constraints including disableVpcInternalIpv6, disableVpcExternalIpv6, and disableHybridCloudIpv6.",
+            "description": "This boolean constraint, when enforced, disables the creation of or update to any Google Compute Engine resources involved in IPv6 usage. By default, anyone with appropriate Cloud IAM permissions can create or update Google Compute Engine resources with IPv6 usage in any projects, folders, and organizations. If set, this constraint will have higher priority than other IPv6 org constraints including disableVpcInternalIpv6, disableVpcExternalIpv6, and disableHybridCloudIpv6.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -895,6 +895,13 @@
             "booleanConstraint": {}
         },
         {
+            "name": "constraints/osconfig.restrictInlineScriptAndOutputFileUsage",
+            "displayName": "VM Manager - Restrict inline script and output file usage",
+            "description": "This boolean constraint, when set to 'True', enforces compliance with Assured Workloads requirements by restricting the creation or modification of VM Manager resources that use inline scripts or binary output files. Specifically, the 'script' and 'output_file_path' fields within the OSPolicyAssignment and PolicyOrchestrator resources must remain empty.",
+            "constraintDefault": "ALLOW",
+            "booleanConstraint": {}
+        },
+        {
             "name": "constraints/pubsub.enforceInTransitRegions",
             "displayName": "Enforce in-transit regions for Pub/Sub messages",
             "description": "This boolean constraint, when enforced, sets MessageStoragePolicy::enforce_in_transit to true for all new Pub/Sub topics at creation time. This ensures that Customer Data transits only within the allowed regions specified in the message storage policy for the topic.",
@@ -932,7 +939,7 @@
         {
             "name": "constraints/vertexai.allowedGenAIModels",
             "displayName": "Define access to Google proprietary generative AI models on Vertex AI",
-            "description": "This list constraint defines the set of generative AI models and features allowed to be used in Vertex AI APIs. The values of the allowlist should follow the format model_id:feature_family. For example, publishers/google/models/text-bison:predict. This list constraint only restricts access to Google proprietary generative AI models, and does not effect third-party proprietary models or open source models. The constraint vertexai.allowedModels can be used to define access to a broader set of models including Google proprietary models, third-party proprietary models, and open source models. By default, all models can be used in Vertex AI APIs.",
+            "description": "This list constraint defines the set of generative AI models and features allowed to be used in Vertex AI APIs. The values of the allowlist should follow the format model_id:feature_family. For example, publishers/google/models/text-bison:predict. This list constraint only restricts access to Google proprietary generative AI models, and doesn't affect third-party proprietary models or open source models. The constraint vertexai.allowedModels can be used to define access to a broader set of models including Google proprietary models, third-party proprietary models, and open source models. By default, all models can be used in Vertex AI APIs.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -944,6 +951,13 @@
             "booleanConstraint": {}
         },
         {
+            "name": "constraints/vertexai.genAIGroundingSources",
+            "displayName": "Control Grounding Sources in Vertex AI Generative APIs",
+            "description": "This list constraint defines the set of grounding sources allowed or denied for use with Vertex AI generative APIs. By default, all grounding sources are allowed. Valid values are: GoogleMaps, VertexAiSearch, VertexRagStore, EnterpriseWebSearch, ExternalApiSimpleSearch, ExternalApiElasticSearch and UrlContext.",
+            "constraintDefault": "ALLOW",
+            "listConstraint": {}
+        },
+        {
             "name": "constraints/vertexai.allowedModels",
             "displayName": "Define access to models on Vertex AI",
             "description": "This list constraint defines the set of models and features allowed to be used in Vertex AI APIs. The values of the allowlist should follow the format \"model_id:feature_family\", for example \"publishers/google/models/gemini-1.0-pro:predict\". By default, all models can be used in Vertex AI APIs.",
@@ -951,9 +965,76 @@
             "listConstraint": {}
         },
         {
+            "name": "constraints/vertexai.allowedPartnerModelFeatures",
+            "displayName": "Define the managed partner model's advanced features that can be used on Vertex AI",
+            "description": "This list constraint defines the set of managed partner model's advanced features allowed to be used in Vertex AI APIs. The values of the allowlist should follow the format \"publishers/publisher_id/models[/model_id:feature_family]\", for example \"publishers/anthropic/models/claude-sonnet-4:web_search\" or \"publishers/anthropic/models/claude-sonnet-4\" or \"publishers/anthropic\". By default, all advanced features of the managed partner models are blocked in Vertex AI APIs.",
+            "constraintDefault": "DENY",
+            "listConstraint": {}
+        },
+        {
+            "name": "constraints/compute.managed.disableNestedVirtualization",
+            "displayName": "Disable VM Nested Virtualization",
+            "description": "[Public Preview] This boolean constraint disables hardware-accelerated nestedvirtualization for all Compute Engine VMs belonging to the organization, project, or folder where this constraint is set to True. By default, hardware-accelerated nested virtualization is allowed for all Compute Engine VMs running on Intel Haswell or newer CPU platforms. ",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.disableSerialPortAccess",
+            "displayName": "Restrict enabling VM serial port access metadata",
+            "description": "Preview: This constraint prevents the serial-port-enable metadata key from being set to true for Compute Engine VMs within the organization, project, or folder where this constraint is enforced. By default, serial port access can be enabled on a per-VM, per-zone, or per-project basis using this metadata key. To allow serial port access for specific VMs, you can exempt them from this policy using tags and conditional rules.Important: Enforcing this constraint does not affect existing VMs where serial-port-enable is already set to true; they will retain access unless their metadata is updated.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.disableSerialPortLogging",
+            "displayName": "Disable VM serial port logging to Stackdriver",
+            "description": "[Public Preview] This constraint, when enforced, disables serial port logging to Stackdriver from Compute Engine VMs.By default, serial port logging for Compute Engine VMs is disabled, and can be selectively enabled on a per-VM or per-project basis using metadata attributes. Disabling serial port logging can cause certain services that rely on it, such as Google Kubernetes Engine clusters, to not function correctly. Before you enforce this constraint, verify that the products in your project do not rely on serial port logging. You can allow specific VM instances to use serial port logging. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.disallowGlobalDns",
+            "displayName": "Restricts usage of Global Internal DNS (gDNS) for projects that have a ZonalOnly DNS setting.",
+            "description": "[Public Preview] This constraint, when enforced, restricts gDNS usage. This restriction disables gDNS VM creation and updating VMs to use gDNS. Reverting a zDNS project to gDNS won't be blocked, but lead to policy violation enforcement during subsequent Instance API invocations. ",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/spanner.managed.restrictCloudSpannerEditions",
+            "displayName": "Denied Editions for Cloud Spanner Instance",
+            "description": "The edition you're attempting to use is not allowed by your organization's policy. Please review the policy and select a permitted edition.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.requireOsConfig",
+            "displayName": "Require OS Config",
+            "description": "[Public Preview] This constraint, when enforced, requires enablement of VM Manager (OS Config) on all new projects. On new and existing projects, this constraint prevents metadata updates that disable VM Manager at the project, project-zonal, or instance level. You can allow specific VM instances to disable VM Manager. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.requireOsLogin",
+            "displayName": "Require OS Login",
+            "description": "[Public Preview] This constraint, when enforced, requires enablement of OS Login on all newly created Projects. On new and existing projects, this constraint prevents metadata updates that disable OS Login at the project, project-zonal, or instance level. You can allow specific VM instances to disable OS Login. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/gcp.managed.mcpAllowedServices",
+            "displayName": "Restrict enablement of service mcp endpoints.",
+            "description": "When enforced, ensures that only the allow listed services can have their mcp endpoints enabled. By default this constraint is enforced and the list of allowed services is empty, preventing any mcp endpoint enablement.",
+            "constraintDefault": "ALLOW"
+        },
+        {
             "name": "constraints/compute.managed.restrictProtocolForwardingCreationForTypes",
             "displayName": "Restricts the use of protocol forwarding",
             "description": "This constraint lets you restrict the types of protocol forwarding deployments (internal or external) that can be created in your organization. To configure the constraint, you specify an allowlist of the type of protocol forwarding deployment to be allowed. The allowlist can only include the following values: [INTERNAL, EXTERNAL]. . For example, if the allowlist is set to INTERNAL, your users can only set up internal protocol forwarding. That is, any forwarding rules associated with target instances are restricted to the INTERNAL load balancing scheme and must use only internal IP addresses.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.vmCanIpForward",
+            "displayName": "Restrict VM IP forwarding",
+            "description": "[Public Preview] This constraint defines whether Compute Engine VM instances can enable IP forwarding. By default, if no policy is specified, any VM can enable IP forwarding in any virtual network. If enforced, this constraint will deny the creation or update of VM instances with IP forwarding enabled. You can allow specific VM instances to enable IP forwarding. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/compute.managed.vmExternalIpAccess",
+            "displayName": "Restrict External IPs For VM instances",
+            "description": "[Public Preview] This constraint defines whether Compute Engine VM instances are allowed to use IPv4 external IP addresses. By default, all VM instances are allowed to use external IP addresses. If enforced, this constraint will deny the creation or update of VM instances with IPv4 external IP addresses. This constraint will not restrict the usage of IPv6 external IP addresses. You can allow specific VM instances to use external IPv4 IP addresses. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
         },
         {
@@ -1017,9 +1098,45 @@
             "constraintDefault": "ALLOW"
         },
         {
+            "name": "constraints/container.managed.enableShieldedNodes",
+            "displayName": "Require enabling Shielded Nodes in GKE clusters",
+            "description": "Require that Shielded Nodes remain enabled. Shielded GKE Nodes provide strong, verifiable node identity and integrity to increase the security of GKE nodes. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.disableInsecureKubeletReadOnlyPort",
+            "displayName": "Require disabling the insecure kubelet read-only port in GKE clusters",
+            "description": "Require that the insecure kubelet read-only port (10255) remains disabled. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/disable-kubelet-readonly-port",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.disableLegacyClientCertificateIssuance",
+            "displayName": "Require that client certificate authentication is disabled",
+            "description": "Don't manually enable the legacy method of client certificate authentication.. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#disabling_authentication_with_a_client_certificate",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.enableCloudLogging",
+            "displayName": "Require that Cloud Logging is enabled in GKE clusters",
+            "description": "Require that all GKE clusters use at least the default Cloud Logging configuration. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#stackdriver_logging",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.disableABAC",
+            "displayName": "Require that Attribute-Based Access Control is disabled",
+            "description": "Reject requests to enable Attribute-Based Access Control (ABAC) on GKE clusters. ABAC is a legacy authentication method that's disabled by default in all new clusters. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#leave_abac_disabled",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.denyServiceExternalIPs",
+            "displayName": "Require that the DenyServiceExternalIPs admission controller is enabled",
+            "description": "Require that the DenyServiceExternalIPs admission controller remains enabled in GKE clusters. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#deny_external_IPs",
+            "constraintDefault": "ALLOW"
+        },
+        {
             "name": "constraints/iam.managed.allowedPolicyMembers",
             "displayName": "Restrict allowed policy members in IAM allow policies",
-            "description": "This constraint defines the set of members that can be granted IAM roles in your organization. You can specify the allowed members by specifying an organization principalSet or by specifying individual members. Specifying an organization principalSet allows all identities that are associated with that organization (including Workspace accounts, Workspace groups, service accounts, workforce pool identities, workload pool identities, and service agents) to be granted roles in your organization. Your organization principalSet is not added automatically. To ensure that identities from your organization can be added to allow policies in your organization, you must specify your organization as one of the allowed principal sets. Specifying individual members allows only those members (and associated aliases) to be granted roles in your organization. When you specify individual users, you must include the principal type prefix (for example, 'user:' or 'serviceAccount:').",
+            "description": "This constraint defines the organization principal sets that can be granted IAM roles in your organization. Specifying an organization principal set allows all identities that are associated with that organization (including Workspace accounts, Workspace groups, service accounts, workforce pool identities, workload pool identities, and service agents) to be granted roles in your organization. Your organization principal set is not automatically allowed, and must be included as an allowed principal set. You can specify individual members using the principal type prefix (for example, `user:` or `serviceAccount:` to grant them and associated aliases roles in your organization. Enforcing this constraint can block folder resource creation due to automatic Folder Admin and Folder Editor role grants, and can block project resource creation due to automatic Owner role grants.",
             "constraintDefault": "ALLOW"
         },
         {
@@ -1060,13 +1177,61 @@
         {
             "name": "constraints/run.managed.requireInvokerIam",
             "displayName": "Require IAM invoker check for Cloud Run services",
-            "description": "When enforced, this constraint requires the IAM invoker check to be enabled on Cloud Run services. If this constraint is not enforced, you can set the service.invoker_iam_disabled field (v2), or the run.googleapis.com/invoker-iam-disabled annotation (v1) on Cloud Run services to True. The invoker_iam_disabled field is currently available by invitation-only and will not be broadly available until after March 21, 2025. It's still possible to achieve a similar result by granting the run.routes.invoke permission to allUsers.",
+            "description": "When enforced, this constraint requires the IAM invoker check to be enabled on Cloud Run services. If this constraint is not enforced, you can set the service.invoker_iam_disabled field (v2), or the run.googleapis.com/invoker-iam-disabled annotation (v1) on Cloud Run services to True. It's also possible to achieve a similar result by granting the run.routes.invoke permission to allUsers. Please visit https://cloud.google.com/run/docs/securing/managing-access#make-service-public and https://cloud.google.com/run/docs/securing/security for more information.",
             "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/compute.managed.blockPreviewFeatures",
-            "displayName": "Block Preview Features",
-            "description": "This constraint ensures that preview feature updates are blocked unless explicitly allowed. You control which preview features can be updated by specifying them individually. Specifying individual preview features allows only those preview features to be accessed in your organization."
+            "displayName": "Block Compute Engine Preview Features",
+            "description": "This constraint ensures that preview features are blocked unless this constraint is explicitly allowed. Once set to allow, you can control which preview features can individually be enabled or disabled for your project. Only enabled preview features can be accessed in the project. Subsequently disabling the policy does not change the status of individual preview features already set & they can be individually disabled. This constraint only applies to Compute Alpha API features."
+        },
+        {
+            "name": "constraints/compute.managed.allowedVlanAttachmentEncryption",
+            "displayName": "Allowed VLAN Attachment encryption settings",
+            "description": "This list constraint defines the allowed encryption settings for new VLAN Attachments. By default, VLAN Attachments are allowed to use any encryption settings. Set IPSEC as the allowed value to enforce creating encrypted VLAN attachments only.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/pubsub.managed.disableTopicMessageTransforms",
+            "displayName": "Disables Topic Single Message Transforms (SMTs)",
+            "description": "Do not configure or modify this policy. This constraint is automatically configured during Assured Workloads onboarding and is only intended for advanced regulatory control for Assured Workloads. When this boolean constraint is enforced, Pub/Sub Topics cannot set Single Message Transforms (SMTs).",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/pubsub.managed.disableSubscriptionMessageTransforms",
+            "displayName": "Disables Subscription Single Message Transforms (SMTs)",
+            "description": "Do not configure or modify this policy. This constraint is automatically configured during Assured Workloads onboarding and is only intended for advanced regulatory control for Assured Workloads. When this boolean constraint is enforced, Pub/Sub Subscriptions cannot set Single Message Transforms (SMTs).",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/dataflow.managed.blockProjectSshKeys",
+            "displayName": "Block project SSH keys",
+            "description": "Disable project-wide SSH keys from accessing Dataflow Worker VMs.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/dataflow.managed.disableUsePublicIps",
+            "displayName": "Disable public IPs",
+            "description": "Disable the use of public IPs on Dataflow Worker VMs.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/managedkafka.managed.disableKafkaConnectClusterCreateAndUpdate",
+            "displayName": "Disable Kafka Connect Cluster Create And Update",
+            "description": "When this boolean constraint is enforced, creating andupdating Kafka Connect clusters will be disabled.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/iam.managed.workloadIdentityPoolAwsAccounts",
+            "displayName": "Allowed AWS accounts that can be configured for workload identity federation in Cloud IAM",
+            "description": "List of AWS account IDs that can be configured for workload identity federation in Cloud IAM.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/iam.managed.workloadIdentityPoolProviders",
+            "displayName": "Allowed external Identity Providers for workloads in Cloud IAM",
+            "description": "Identity Providers that can be configured for workload authentication within Cloud IAM, specified by URI/URLs. This constraint is managed by Google.",
+            "constraintDefault": "ALLOW"
         }
     ]
 }
