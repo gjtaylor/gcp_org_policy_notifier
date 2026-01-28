@@ -161,7 +161,7 @@
         {
             "name": "constraints/cloudkms.allowedProtectionLevels",
             "displayName": "Restrict which KMS CryptoKey types may be created.",
-            "description": "This list constraint defines the Cloud KMS key types which may be created under a given hierarchy node. When this constraint is enforced, only KMS key types specified within this org policy may be created within the associated hierarchy node. Configuring this org policy will also impact the protection level of import jobs and key versions. By default, all key types are allowed. Valid values are: SOFTWARE, HSM, EXTERNAL, EXTERNAL_VPC. Deny policies are disallowed.",
+            "description": "This list constraint defines the Cloud KMS key types which may be created under a given hierarchy node. When this constraint is enforced, only KMS key types specified within this org policy may be created within the associated hierarchy node. Configuring this org policy will also impact the protection level of import jobs and key versions. By default, all key types are allowed. Valid values are: SOFTWARE, HSM, HSM_SINGLE_TENANT, EXTERNAL, EXTERNAL_VPC. Deny policies are disallowed.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -953,7 +953,7 @@
         {
             "name": "constraints/vertexai.genAIGroundingSources",
             "displayName": "Control Grounding Sources in Vertex AI Generative APIs",
-            "description": "This list constraint defines the set of grounding sources allowed or denied for use with Vertex AI generative APIs. By default, all grounding sources are allowed. Valid values are: GoogleMaps, VertexAiSearch, VertexRagStore, EnterpriseWebSearch, ExternalApiSimpleSearch, ExternalApiElasticSearch and UrlContext.",
+            "description": "This list constraint defines the set of grounding sources allowed or denied for use with Vertex AI generative APIs. By default, all grounding sources are allowed. Valid values are: GoogleMaps, VertexAiSearch, VertexRagStore, EnterpriseWebSearch, ExternalApiSimpleSearch, ExternalApiElasticSearch, UrlContext and ParallelAiSearch.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -970,6 +970,12 @@
             "description": "This list constraint defines the set of managed partner model's advanced features allowed to be used in Vertex AI APIs. The values of the allowlist should follow the format \"publishers/publisher_id/models[/model_id:feature_family]\", for example \"publishers/anthropic/models/claude-sonnet-4:web_search\" or \"publishers/anthropic/models/claude-sonnet-4\" or \"publishers/anthropic\". By default, all advanced features of the managed partner models are blocked in Vertex AI APIs.",
             "constraintDefault": "DENY",
             "listConstraint": {}
+        },
+        {
+            "name": "constraints/compute.managed.disableGuestAttributesAccess",
+            "displayName": "Disable Guest Attributes of Compute Engine metadata",
+            "description": "[Public Preview] This constraint, when enforced, disables Compute Engine API access to the Guest Attributes of Compute Engine VMs. By default, the Compute Engine API can be used to access Compute Engine VM guest attributes. You can allow specific VM instances to use guest attributes. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/compute.managed.disableNestedVirtualization",
@@ -999,6 +1005,18 @@
             "name": "constraints/spanner.managed.restrictCloudSpannerEditions",
             "displayName": "Denied Editions for Cloud Spanner Instance",
             "description": "The edition you're attempting to use is not allowed by your organization's policy. Please review the policy and select a permitted edition.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/sql.managed.restrictAuthorizedNetworks",
+            "displayName": "Restrict Authorized Networks on Cloud SQL instances",
+            "description": "This constraint restricts creating/updating SQL Instance with Authorized Networks. This constraint is not retroactive; Cloud SQL instances with existing Authorized Networks will still work even after this constraint is enforced. By default, Authorized Networks can be added to Cloud SQL instances.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/sql.managed.restrictPublicIp",
+            "displayName": "Restrict Public IP access on Cloud SQL instances",
+            "description": "This constraint restricts configuring public IP on Cloud SQL instances where this constraint is set to `True`. This constraint is not retroactive; Cloud SQL instances with existing public IP enabled will continue to work even after this constraint is enforced. By default, public IP can be enabled on Cloud SQL instances.",
             "constraintDefault": "ALLOW"
         },
         {
