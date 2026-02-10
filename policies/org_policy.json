@@ -974,13 +974,13 @@
         {
             "name": "constraints/compute.managed.disableGuestAttributesAccess",
             "displayName": "Disable Guest Attributes of Compute Engine metadata",
-            "description": "[Public Preview] This constraint, when enforced, disables Compute Engine API access to the Guest Attributes of Compute Engine VMs. By default, the Compute Engine API can be used to access Compute Engine VM guest attributes. You can allow specific VM instances to use guest attributes. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "description": "Preview: This constraint, when enforced, disables Compute Engine API access to the Guest Attributes of Compute Engine VMs. By default, the Compute Engine API can be used to access Compute Engine VM guest attributes. You can allow specific VM instances to use guest attributes. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/compute.managed.disableNestedVirtualization",
             "displayName": "Disable VM Nested Virtualization",
-            "description": "[Public Preview] This boolean constraint disables hardware-accelerated nestedvirtualization for all Compute Engine VMs belonging to the organization, project, or folder where this constraint is set to True. By default, hardware-accelerated nested virtualization is allowed for all Compute Engine VMs running on Intel Haswell or newer CPU platforms. ",
+            "description": "Preview: This boolean constraint disables hardware-accelerated nestedvirtualization for all Compute Engine VMs belonging to the organization, project, or folder where this constraint is set to True. By default, hardware-accelerated nested virtualization is allowed for all Compute Engine VMs running on Intel Haswell or newer CPU platforms. ",
             "constraintDefault": "ALLOW"
         },
         {
@@ -992,19 +992,19 @@
         {
             "name": "constraints/compute.managed.disableSerialPortLogging",
             "displayName": "Disable VM serial port logging to Stackdriver",
-            "description": "[Public Preview] This constraint, when enforced, disables serial port logging to Stackdriver from Compute Engine VMs.By default, serial port logging for Compute Engine VMs is disabled, and can be selectively enabled on a per-VM or per-project basis using metadata attributes. Disabling serial port logging can cause certain services that rely on it, such as Google Kubernetes Engine clusters, to not function correctly. Before you enforce this constraint, verify that the products in your project do not rely on serial port logging. You can allow specific VM instances to use serial port logging. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "description": "Preview: This constraint, when enforced, disables serial port logging to Stackdriver from Compute Engine VMs.By default, serial port logging for Compute Engine VMs is disabled, and can be selectively enabled on a per-VM or per-project basis using metadata attributes. Disabling serial port logging can cause certain services that rely on it, such as Google Kubernetes Engine clusters, to not function correctly. Before you enforce this constraint, verify that the products in your project do not rely on serial port logging. You can allow specific VM instances to use serial port logging. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/compute.managed.disallowGlobalDns",
             "displayName": "Restricts usage of Global Internal DNS (gDNS) for projects that have a ZonalOnly DNS setting.",
-            "description": "[Public Preview] This constraint, when enforced, restricts gDNS usage. This restriction disables gDNS VM creation and updating VMs to use gDNS. Reverting a zDNS project to gDNS won't be blocked, but lead to policy violation enforcement during subsequent Instance API invocations. ",
+            "description": "Preview: This constraint, when enforced, restricts gDNS usage. This restriction disables gDNS VM creation and updating VMs to use gDNS. Reverting a zDNS project to gDNS won't be blocked, but lead to policy violation enforcement during subsequent Instance API invocations. ",
             "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/spanner.managed.restrictCloudSpannerEditions",
-            "displayName": "Denied Editions for Cloud Spanner Instance",
-            "description": "The edition you're attempting to use is not allowed by your organization's policy. Please review the policy and select a permitted edition.",
+            "displayName": "Denied editions for Spanner instances",
+            "description": "\n\nThis constraint, when enforced, restricts the Spanner editions that a Spanner instance can use. By default, a Spanner instance can use any Spanner edition.\n\nThe deniedEditions list must specify one or more of the following Spanner editions:\n[STANDARD , ENTERPRISE, ENTERPRISE_PLUS ]. \n\nIf an edition is specified, Spanner instances using that edition can't be created or updated where this constraint is enforced.\n",
             "constraintDefault": "ALLOW"
         },
         {
@@ -1022,13 +1022,13 @@
         {
             "name": "constraints/compute.managed.requireOsConfig",
             "displayName": "Require OS Config",
-            "description": "[Public Preview] This constraint, when enforced, requires enablement of VM Manager (OS Config) on all new projects. On new and existing projects, this constraint prevents metadata updates that disable VM Manager at the project, project-zonal, or instance level. You can allow specific VM instances to disable VM Manager. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "description": "Preview: This constraint, when enforced, requires enablement of VM Manager (OS Config) on all new projects. On new and existing projects, this constraint prevents metadata updates that disable VM Manager at the project, project-zonal, or instance level. You can allow specific VM instances to disable VM Manager. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/compute.managed.requireOsLogin",
             "displayName": "Require OS Login",
-            "description": "[Public Preview] This constraint, when enforced, requires enablement of OS Login on all newly created Projects. On new and existing projects, this constraint prevents metadata updates that disable OS Login at the project, project-zonal, or instance level. You can allow specific VM instances to disable OS Login. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "description": "Preview: This constraint, when enforced, requires enablement of OS Login on all newly created Projects. On new and existing projects, this constraint prevents metadata updates that disable OS Login at the project, project-zonal, or instance level. You can allow specific VM instances to disable OS Login. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
         },
         {
@@ -1046,14 +1046,19 @@
         {
             "name": "constraints/compute.managed.vmCanIpForward",
             "displayName": "Restrict VM IP forwarding",
-            "description": "[Public Preview] This constraint defines whether Compute Engine VM instances can enable IP forwarding. By default, if no policy is specified, any VM can enable IP forwarding in any virtual network. If enforced, this constraint will deny the creation or update of VM instances with IP forwarding enabled. You can allow specific VM instances to enable IP forwarding. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "description": "Preview: This constraint defines whether Compute Engine VM instances can enable IP forwarding. By default, if no policy is specified, any VM can enable IP forwarding in any virtual network. If enforced, this constraint will deny the creation or update of VM instances with IP forwarding enabled. You can allow specific VM instances to enable IP forwarding. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
         },
         {
             "name": "constraints/compute.managed.vmExternalIpAccess",
             "displayName": "Restrict External IPs For VM instances",
-            "description": "[Public Preview] This constraint defines whether Compute Engine VM instances are allowed to use IPv4 external IP addresses. By default, all VM instances are allowed to use external IP addresses. If enforced, this constraint will deny the creation or update of VM instances with IPv4 external IP addresses. This constraint will not restrict the usage of IPv6 external IP addresses. You can allow specific VM instances to use external IPv4 IP addresses. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
+            "description": "Preview: This constraint defines whether Compute Engine VM instances are allowed to use IPv4 external IP addresses. By default, all VM instances are allowed to use external IP addresses. If enforced, this constraint will deny the creation or update of VM instances with IPv4 external IP addresses. This constraint will not restrict the usage of IPv6 external IP addresses. You can allow specific VM instances to use external IPv4 IP addresses. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
             "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.autopilotPrivilegedAdmission",
+            "displayName": "Enable Autopilot privileged admission control",
+            "description": "Enable allowlist-based admission control for privileged Autopilot workloads when creating or updating GKE clusters."
         },
         {
             "name": "constraints/container.managed.enableBinaryAuthorization",
@@ -1195,7 +1200,7 @@
         {
             "name": "constraints/run.managed.requireInvokerIam",
             "displayName": "Require IAM invoker check for Cloud Run services",
-            "description": "When enforced, this constraint requires the IAM invoker check to be enabled on Cloud Run services. If this constraint is not enforced, you can set the service.invoker_iam_disabled field (v2), or the run.googleapis.com/invoker-iam-disabled annotation (v1) on Cloud Run services to True. It's also possible to achieve a similar result by granting the run.routes.invoke permission to allUsers. Please visit https://cloud.google.com/run/docs/securing/managing-access#make-service-public and https://cloud.google.com/run/docs/securing/security for more information.",
+            "description": "When enforced, this constraint requires the IAM invoker check to be enabled on Cloud Run services. If this constraint is not enforced, you can set the service.invoker_iam_disabled field (v2), or the run.googleapis.com/invoker-iam-disabled annotation (v1) on Cloud Run services to True. Setting service.invoker_iam_disabled to True only affects deployment of new revisions that use this field or annotation set to True. It's also possible to achieve a similar result by granting the run.routes.invoke permission to allUsers. For more information, see https://cloud.google.com/run/docs/securing/managing-access#make-service-public and https://cloud.google.com/run/docs/securing/security.",
             "constraintDefault": "ALLOW"
         },
         {
