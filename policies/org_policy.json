@@ -972,6 +972,18 @@
             "listConstraint": {}
         },
         {
+            "name": "constraints/storage.managed.retentionPolicySeconds",
+            "displayName": "Restrict bucket retention policy duration",
+            "description": "This list constraint defines the set of durations for retention policies that can be set on Cloud Storage buckets. By default, if no organization policy is specified, a Cloud Storage bucket can have a retention policy of any duration. The list of allowed durations must be specified as a positive integer value greater than zero, representing the retention policy in seconds. Any insert, update, or patch operation on a bucket in the organization resource must have a retention policy duration that matches the constraint. Enforcement of this constraint is not retroactive. When a new organization policy is enforced, the retention policy of existing buckets remains unchanged and valid.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/storage.managed.softDeletePolicySeconds",
+            "displayName": "Restrict bucket soft delete policy duration",
+            "description": "This constraint defines the allowable retention durations for soft delete policies set on Cloud Storage buckets where this constraint is enforced. Any insert, update, or patch operation on a bucket where this constraint is enforced must have a soft delete policy duration that matches the constraint. When a new organization policy is enforced, the soft delete policy of existing buckets remains unchanged and valid. By default, if no organization policy is specified, a Cloud Storage bucket can have a soft delete policy of any duration.",
+            "constraintDefault": "ALLOW"
+        },
+        {
             "name": "constraints/compute.managed.blockProjectSshKeys",
             "displayName": "Block Project-wide SSH Keys",
             "description": "Preview: This constraint prevents the block-project-ssh-keys metadata key from being set to false at the project, project-zonal, or instance level for Compute Engine VMs within the organization, project, or folder where this constraint is enforced. By default, project-wide SSH keys are allowed and can be disabled at the project, project-zonal, or instance level using this metadata key. To allow project-wide SSH keys for specific VMs, you can exempt them from this policy using tags and conditional rules.Important: Enforcing this constraint does not affect existing VMs where block-project-ssh-keys is already set to false; they will retain access unless their metadata is updated.",
