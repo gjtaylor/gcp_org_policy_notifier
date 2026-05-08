@@ -317,7 +317,7 @@
         {
             "name": "constraints/gcp.resourceLocations",
             "displayName": "Google Cloud Platform - Resource Location Restriction",
-            "description": "This list constraint defines the set of locations where location-based Google Cloud resources can be created. Important: The information on this page does not describe Google Cloud Platform's data location commitments for Customer Data (as defined in the agreement under which Google has agreed to provide Google Cloud Platform services and as described in the Google Cloud Platform Services Summary at https://cloud.google.com/terms/services) to its customers. For the list of Google Cloud Platform services for which Customer Data location may be selected by customers, see Google Cloud Platform Services with Data Residency at https://cloud.google.com/terms/data-residency. By default, resources can be created in any location. For a full list of supported services, see https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations-supported-services. Policies for this constraint can specify multi-regions such as asia and europe, regions such as us-east1 or europe-west1 as allowed or denied locations. Allowing or denying a multi-region does not imply that all included sub-locations should also be allowed or denied. For example, if the policy denies the us multi-region (which refers to multi-region resources, like some storage services), resources can still be created in the regional location us-east1. On the other hand, the in:us-locations group contains all locations within the us region, and can be used to block every region. We recommend using value groups to define your policy. You can specify value groups, collections of locations that are curated by Google to provide a simple way to define your resource locations. To use value groups in your organization policy, prefix your entries with the string in:, followed by the value group. For example, to create resources that will only be physically located within the US, set in:us-locations in the list of allowed values. If the suggested_value field is used in a location policy, it should be a region. If the value specified is a region, a UI for a zonal resource may pre-populate any zone in that region. ",
+            "description": "This list constraint defines the set of locations where location-based Google Cloud resources can be created. Important: The information on this page does not describe Google Cloud Platform's data location commitments for Customer Data (as defined in the agreement under which Google has agreed to provide Google Cloud Platform services and as described in the Google Cloud Platform Services Summary at https://docs.cloud.google.com/terms/services) to its customers. For the list of Google Cloud Platform services for which Customer Data location may be selected by customers, see Google Cloud Platform Services with Data Residency at https://docs.cloud.google.com/terms/data-residency. By default, resources can be created in any location. For a full list of supported services, see https://docs.cloud.google.com/organization-policy/reference/restrict-locations-supported-services. Policies for this constraint can specify multi-regions such as asia and europe, regions such as us-east1 or europe-west1 as allowed or denied locations. Allowing or denying a multi-region does not imply that all included sub-locations should also be allowed or denied. For example, if the policy denies the us multi-region (which refers to multi-region resources, like some storage services), resources can still be created in the regional location us-east1. On the other hand, the in:us-locations group contains all locations within the us region, and can be used to block every region. We recommend using value groups to define your policy. You can specify value groups, collections of locations that are curated by Google to provide a simple way to define your resource locations. To use value groups in your organization policy, prefix your entries with the string in:, followed by the value group. For example, to create resources that will only be physically located within the US, set in:us-locations in the list of allowed values. If the suggested_value field is used in a location policy, it should be a region. If the value specified is a region, a UI for a zonal resource may pre-populate any zone in that region. ",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -382,7 +382,7 @@
         {
             "name": "constraints/iam.automaticIamGrantsForDefaultServiceAccounts",
             "displayName": "Disable Automatic IAM Grants for Default Service Accounts",
-            "description": "This boolean constraint, when enforced, prevents the default App Engine and Compute Engine service accounts that are created in your projects from being automatically granted any IAM role on the project when the accounts are created. By default, these service accounts automatically receive the Editor role when they are created. To learn about default service accounts, see https://cloud.google.com/iam/help/service-accounts/default. To learn which roles to grant instead of the Editor role, see https://cloud.google.com/iam/help/service-accounts/troubleshoot-roles-default.",
+            "description": "This boolean constraint, when enforced, prevents the default App Engine and Compute Engine service accounts that are created in your projects from being automatically granted any IAM role on the project when the accounts are created. By default, these service accounts automatically receive the Editor role when they are created. To learn about default service accounts, see https://docs.cloud.google.com/iam/help/service-accounts/default. To learn which roles to grant instead of the Editor role, see https://docs.cloud.google.com/iam/help/service-accounts/troubleshoot-roles-default.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -582,7 +582,7 @@
         {
             "name": "constraints/compute.restrictLoadBalancerCreationForTypes",
             "displayName": "Restrict Load Balancer Creation Based on Load Balancer Types",
-            "description": "This list constraint defines the set of load balancer types which can be created for an organization, folder, or project. Every load balancer type to be allowed or denied must be listed explicitly. By default, creation of all types of load balancers is allowed. The list of allowed or denied values must be identified as the string name of a load balancer, and can only include values from the list below: [INTERNAL_TCP_UDP, INTERNAL_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_TCP_PROXY, REGIONAL_INTERNAL_MANAGED_TCP_PROXY, EXTERNAL_NETWORK_TCP_UDP, EXTERNAL_TCP_PROXY, EXTERNAL_SSL_PROXY, EXTERNAL_HTTP_HTTPS, EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_TCP_PROXY, GLOBAL_EXTERNAL_MANAGED_SSL_PROXY]. , REGIONAL_EXTERNAL_MANAGED_TCP_PROXY To include all internal or all external load balancer types, use the in: prefix followed by INTERNAL or EXTERNAL. For example, allowing in:INTERNAL will allow all load balancer types from the above list that include INTERNAL. For more information about restricting load balancer types, see https://cloud.google.com/load-balancing/docs/org-policy-constraints.",
+            "description": "This list constraint defines the set of load balancer types which can be created for an organization, folder, or project. Every load balancer type to be allowed or denied must be listed explicitly. By default, creation of all types of load balancers is allowed. The list of allowed or denied values must be identified as the string name of a load balancer, and can only include values from the list below: [INTERNAL_TCP_UDP, INTERNAL_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_INTERNAL_MANAGED_TCP_PROXY, REGIONAL_INTERNAL_MANAGED_TCP_PROXY, EXTERNAL_NETWORK_TCP_UDP, EXTERNAL_TCP_PROXY, EXTERNAL_SSL_PROXY, EXTERNAL_HTTP_HTTPS, EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_HTTP_HTTPS, GLOBAL_EXTERNAL_MANAGED_TCP_PROXY, GLOBAL_EXTERNAL_MANAGED_SSL_PROXY]. , REGIONAL_EXTERNAL_MANAGED_TCP_PROXY To include all internal or all external load balancer types, use the in: prefix followed by INTERNAL or EXTERNAL. For example, allowing in:INTERNAL will allow all load balancer types from the above list that include INTERNAL. For more information about restricting load balancer types, see https://docs.cloud.google.com/load-balancing/docs/org-policy-constraints.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -641,14 +641,14 @@
         {
             "name": "constraints/gcp.restrictServiceUsage",
             "displayName": "Restrict Resource Service Usage",
-            "description": "This constraint defines the set of Google Cloud resource services that can be used within an organization, folder, or project, such as compute.googleapis.com and storage.googleapis.com. By default, all Google Cloud resource services are allowed. For more information, see https://cloud.google.com/resource-manager/help/organization-policy/restricting-resources. ",
+            "description": "This constraint defines the set of Google Cloud resource services that can be used within an organization, folder, or project, such as compute.googleapis.com and storage.googleapis.com. By default, all Google Cloud resource services are allowed. For more information, see https://docs.cloud.google.com/organization-policy/restrict-services. ",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
         {
             "name": "constraints/gcp.restrictTLSVersion",
             "displayName": "Restrict TLS Versions",
-            "description": "This constraint defines the set of TLS versions that cannot be used on the organization, folder, or project where this constraint is enforced, or any of that resource's children in the resource hierarchy. By default, all TLS versions are allowed. TLS versions can only be specified in the denied list, and must be identified in the form TLS_VERSION_1 or TLS_VERSION_1_1.This constraint is only applied to requests using TLS. It will not be used to restrict unencrypted requests. For more information, see https://cloud.google.com/assured-workloads/docs/restrict-tls-versions.",
+            "description": "This constraint defines the set of TLS versions that cannot be used on the organization, folder, or project where this constraint is enforced, or any of that resource's children in the resource hierarchy. By default, all TLS versions are allowed. TLS versions can only be specified in the denied list, and must be identified in the form TLS_VERSION_1 or TLS_VERSION_1_1.This constraint is only applied to requests using TLS. It will not be used to restrict unencrypted requests. For more information, see https://docs.cloud.google.com/docs/security/compliance/restrict-tls-versions.",
             "constraintDefault": "ALLOW",
             "listConstraint": {}
         },
@@ -729,7 +729,7 @@
         {
             "name": "constraints/storage.publicAccessPrevention",
             "displayName": "Enforce Public Access Prevention",
-            "description": "Secure your Cloud Storage data from public exposure by enforcing public access prevention. This governance policy prevents existing and future resources from being accessed via the public internet by disabling and blocking ACLs and IAM permissions that grant access to allUsers and allAuthenticatedUsers. Enforce this policy on the entire organization (recommended), specific projects, or specific folders to ensure no data is publicly exposed.This policy overrides existing public permissions. Public access will be revoked for existing buckets and objects after this policy is enabled. For more details on the effects of changing enforcement of this constraint on resources, please see: https://cloud.google.com/storage/docs/public-access-prevention.",
+            "description": "Secure your Cloud Storage data from public exposure by enforcing public access prevention. This governance policy prevents existing and future resources from being accessed via the public internet by disabling and blocking ACLs and IAM permissions that grant access to allUsers and allAuthenticatedUsers. Enforce this policy on the entire organization (recommended), specific projects, or specific folders to ensure no data is publicly exposed.This policy overrides existing public permissions. Public access will be revoked for existing buckets and objects after this policy is enabled. For more details on the effects of changing enforcement of this constraint on resources, please see: https://docs.cloud.google.com/storage/docs/public-access-prevention.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -862,14 +862,14 @@
         {
             "name": "constraints/commerceorggovernance.marketplaceServices",
             "displayName": "Restrict access on marketplace services",
-            "description": "This list constraint defines the set of services allowed for marketplace organizations, and can only include values from the list below: [PRIVATE_MARKETPLACE, IAAS_PROCUREMENT]. If the IAAS_PROCUREMENT is in the allowed value list, the IaaS procurement governance experience is enabled for all products. By default, the IaaS procurement governance experience is turned off. The IAAS_PROCUREMENT policy works independently from the Request Procurement governance capability, which is specifically for SaaS products listed on Cloud Marketplace.Note: The PRIVATE_MARKETPLACE value is no longer supported and using it has no effect. To turn on Google Private Marketplace, you must follow the instructions at https://cloud.google.com/marketplace/docs/governance/enable-private-marketplace.",
+            "description": "This list constraint defines the set of services allowed for marketplace organizations, and can only include values from the list below: [PRIVATE_MARKETPLACE, IAAS_PROCUREMENT]. If the IAAS_PROCUREMENT is in the allowed value list, the IaaS procurement governance experience is enabled for all products. By default, the IaaS procurement governance experience is turned off. The IAAS_PROCUREMENT policy works independently from the Request Procurement governance capability, which is specifically for SaaS products listed on Cloud Marketplace.Note: The PRIVATE_MARKETPLACE value is no longer supported and using it has no effect. To turn on Google Private Marketplace, you must follow the instructions at https://docs.cloud.google.com/marketplace/docs/governance/enable-private-marketplace.",
             "constraintDefault": "DENY",
             "listConstraint": {}
         },
         {
             "name": "constraints/commerceorggovernance.disablePublicMarketplace",
             "displayName": "Disable public marketplace",
-            "description": "This boolean constraint, when enforced, turns off Google Cloud Marketplace for all users under the organization. By default, public marketplace access is turned on for the organization. This policy only works when the Private Marketplace is enabled (https://cloud.google.com/marketplace/docs/governance/enable-private-marketplace).Important: For the most optimal experience, we strongly recommend that you use the marketplace user access restrictions feature, as described in https://cloud.google.com/marketplace/docs/governance/strict-user-access to prevent unauthorized use of the marketplace in your organization, instead of doing so via this organization policy.",
+            "description": "This boolean constraint, when enforced, turns off Google Cloud Marketplace for all users under the organization. By default, public marketplace access is turned on for the organization. This policy only works when the Private Marketplace is enabled (https://docs.cloud.google.com/marketplace/docs/governance/enable-private-marketplace).Important: For the most optimal experience, we strongly recommend that you use the marketplace user access restrictions feature, as described in https://docs.cloud.google.com/marketplace/docs/governance/strict-user-access to prevent unauthorized use of the marketplace in your organization, instead of doing so via this organization policy.",
             "constraintDefault": "ALLOW",
             "booleanConstraint": {}
         },
@@ -970,6 +970,20 @@
             "description": "This list constraint defines the set of managed partner model's advanced features allowed to be used in Vertex AI APIs. The values of the allowlist should follow the format \"publishers/publisher_id/models[/model_id:feature_family]\", for example \"publishers/anthropic/models/claude-sonnet-4:web_search\" or \"publishers/anthropic/models/claude-sonnet-4\" or \"publishers/anthropic\". By default, all advanced features of the managed partner models are blocked in Vertex AI APIs.",
             "constraintDefault": "DENY",
             "listConstraint": {}
+        },
+        {
+            "name": "constraints/vertexai.allowOnlyIL5CompliantAPIs",
+            "displayName": "Allow only IL5 Compliant APIs",
+            "description": "This boolean constraint, when enforced, allows only IL5 compliant APIs to be used in Vertex AI APIs. By default, all APIs are allowed.",
+            "constraintDefault": "ALLOW",
+            "booleanConstraint": {}
+        },
+        {
+            "name": "constraints/vertexai.allowOnlyITARCompliantAPIs",
+            "displayName": "Allow only ITAR Compliant APIs",
+            "description": "This boolean constraint, when enforced, allows only ITAR compliant APIs to be used in Vertex AI APIs. By default, all APIs are allowed.",
+            "constraintDefault": "ALLOW",
+            "booleanConstraint": {}
         },
         {
             "name": "constraints/storage.managed.retentionPolicySeconds",
