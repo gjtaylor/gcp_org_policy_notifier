@@ -1310,6 +1310,16 @@
             "name": "constraints/discoveryengine.managed.disableCustomMcpServerConnector",
             "displayName": "Disable custom mcp server connector for gemini enterprise",
             "description": "This constraint, when enforced, would disable the creation of data connector using custom mcp server."
+        },
+        {
+            "name": "constraints/discoveryengine.managed.allowedDataSources",
+            "displayName": "Allowed Data Sources for Data Connectors",
+            "description": "Only allows Data Connector creation with allowed data sources for vpcsc enabled projects and any projects in the enforcedProjects list."
+        },
+        {
+            "name": "constraints/discoveryengine.managed.allowedEgressFqdns",
+            "displayName": "Allowed Egress FQDNs for Data Connectors",
+            "description": "Only allows Data Connector creation with allowed egress FQDNs for vpcsc enabled projects and any projects in the enforcedProjects list."
         }
     ]
 }
