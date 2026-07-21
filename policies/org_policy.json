@@ -1042,7 +1042,7 @@
         {
             "name": "constraints/compute.managed.disallowGlobalDns",
             "displayName": "Restricts usage of Global Internal DNS (gDNS) for projects that have a ZonalOnly DNS setting.",
-            "description": "This constraint, when enforced, restricts gDNS usage. This restriction disables gDNS VM creation and updating VMs to use gDNS. Reverting a zDNS project to gDNS won't be blocked, but lead to policy violation enforcement during subsequent Instance API invocations. ",
+            "description": "This constraint, when enforced, restricts gDNS usage. This restriction disables gDNS VM creation and updating VMs to use gDNS. You can revert a zDNS project to gDNS, but this results in policy violation enforcement during subsequent Instance API invocations. Note: This policy requires explicitly setting the 'vmDnsSetting=ZonalOnly' metadata at the project or instance level for the policy to function as expected, even if the project default is already zonal DNS.",
             "constraintDefault": "ALLOW"
         },
         {
@@ -1256,7 +1256,7 @@
         {
             "name": "constraints/compute.managed.blockPreviewFeatures",
             "displayName": "Block Compute Engine Preview Features",
-            "description": "This constraint ensures that preview features are blocked unless this constraint is explicitly allowed. Once set to allow, you can control which preview features can individually be enabled or disabled for your project. Only enabled preview features can be accessed in the project. Subsequently disabling the policy does not change the status of individual preview features already set & they can be individually disabled. This constraint only applies to Compute Alpha API features."
+            "description": "This constraint blocks Compute Engine preview features by default. You can explicitly allow specific preview features by adding them to the allowedPreviewFeatures list. Alternatively, you can disable the constraint (set to not enforced) to allow all preview features. After a preview feature is allowed (either by using the allowed list or by disabling the constraint), it must also be enabled for the project before it can be used. Subsequently enforcing the constraint does not change the status of individual preview features already set. This constraint only applies to Compute Alpha API features."
         },
         {
             "name": "constraints/compute.managed.allowedVlanAttachmentEncryption",
@@ -1292,12 +1292,6 @@
             "name": "constraints/managedkafka.managed.disableKafkaConnectClusterCreateAndUpdate",
             "displayName": "Disable Kafka Connect Cluster Create And Update",
             "description": "When this boolean constraint is enforced, creating andupdating Kafka Connect clusters will be disabled.",
-            "constraintDefault": "ALLOW"
-        },
-        {
-            "name": "constraints/iam.managed.workloadIdentityPoolAwsAccounts",
-            "displayName": "Allowed AWS accounts that can be configured for workload identity federation in Cloud IAM",
-            "description": "List of AWS account IDs that can be configured for workload identity federation in Cloud IAM.",
             "constraintDefault": "ALLOW"
         },
         {
