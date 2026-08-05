@@ -414,7 +414,7 @@
         {
             "name": "constraints/resourcemanager.allowEnabledServicesForExport",
             "displayName": "Require Enabled Services Allow List for Cross-Organization Move",
-            "description": "This list constraint acts as a check to verify that a project with a service enabled is eligible for cross-organization move. A resource with a supported service enabled must have this constraint enforced and that supported service included in the allowed values to be eligible for a cross-organization move. The current list of allowed values for supported services that can be used is: [SHARED_VPC]. This constraint provides an additional control on top of constraints/resourcemanager.allowedExportDestinations. This list_constraint is empty by default and will not block cross organization moves unless a supported service is enabled on the resource to be exported. This constraint allows more fine-grained control over resources using features that require more caution when being moved to another organization. By default, a resource with a supported service enabled cannot be moved across organizations. ",
+            "description": "This list constraint acts as a check to verify that a project with a service enabled is eligible for cross-organization move. A resource with a supported service enabled must have this constraint enforced and that supported service included in the allowed values to be eligible for a cross-organization move. The supported list of allowed values includes: [SHARED_VPC]. This constraint is enforced with an empty allowed list by default. That means a resource with a supported service enabled can't be moved across organizations by default. /This constraint provides an additional layer of control on top of constraints/resourcemanager.allowedExportDestinations. This constraint allows more fine-grained control over resources using features that require more caution when being moved to another organization.",
             "constraintDefault": "DENY",
             "listConstraint": {}
         },
@@ -596,7 +596,7 @@
         {
             "name": "constraints/compute.vmCanIpForward",
             "displayName": "Restrict VM IP Forwarding",
-            "description": "This list constraint defines the set of VM instances that can enable IP forwarding. By default, any VM can enable IP forwarding in any virtual network. VM instances must be specified in the form: under:organizations/ORGANIZATION_ID, under:folders/FOLDER_ID, under:projects/PROJECT_ID, or projects/PROJECT_ID/zones/ZONE/instances/INSTANCE-NAME. This constraint is not retroactive.",
+            "description": "This list constraint defines the set of VM instances that can enable IP forwarding. By default, any VM can enable IP forwarding in any virtual network. VM instances must be specified in the form: under:organizations/ORGANIZATION_ID, under:folders/FOLDER_ID, under:projects/PROJECT_ID, or is:projects/PROJECT_ID/zones/ZONE/instances/INSTANCE-NAME. This constraint is not retroactive.",
             "constraintDefault": "ALLOW",
             "listConstraint": {
                 "supportsUnder": true
@@ -1198,6 +1198,12 @@
             "name": "constraints/container.managed.denyServiceExternalIPs",
             "displayName": "Require that the DenyServiceExternalIPs admission controller is enabled",
             "description": "Require that the DenyServiceExternalIPs admission controller remains enabled in GKE clusters. For details, see https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#deny_external_IPs",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/container.managed.restrictControlPlaneEgress",
+            "displayName": "Require GKE Control Plane Egress to be restricted (NONE)",
+            "description": "Require that the GKE Control Plane Egress is set to the secure 'NONE' mode. When enforced, this constraint ensures that the control plane has no public IP and all egress traffic is subject to strict allowlisting via a proxy.For details, see https://cloud.google.com/kubernetes-engine/networking/docs/restrict-egress-control-plane.",
             "constraintDefault": "ALLOW"
         },
         {
