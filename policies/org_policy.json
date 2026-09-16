@@ -1095,6 +1095,12 @@
             "constraintDefault": "ALLOW"
         },
         {
+            "name": "constraints/compute.managed.trustedImageProjects",
+            "displayName": "Define trusted image projects for boot disks",
+            "description": "Preview: This constraint defines the set of projects that can be used for image storage and disk instantiation for Compute Engine. By default, instances can be created from images in any project that shares images publicly or explicitly with the user. Where this constraint is enforced, only images from trusted projects are allowed as the source for new boot disks. Note: If a project is specified in both allowedValues and deniedValues, it will be denied.",
+            "constraintDefault": "ALLOW"
+        },
+        {
             "name": "constraints/compute.managed.vmCanIpForward",
             "displayName": "Restrict VM IP forwarding",
             "description": "This constraint defines whether Compute Engine VM instances can enable IP forwarding. By default, if no policy is specified, any VM can enable IP forwarding in any virtual network. If enforced, this constraint will deny the creation or update of VM instances with IP forwarding enabled. You can allow specific VM instances to enable IP forwarding. First apply tags to mark the instances, and then use conditional rules based on tag values to properly scope those instances out of enforcement.",
@@ -1255,9 +1261,27 @@
             "constraintDefault": "ALLOW"
         },
         {
+            "name": "constraints/run.managed.disableEphemeralDisk",
+            "displayName": "Disable ephemeral disk storage for Cloud Run services",
+            "description": "Prevents the use of ephemeral disk storage (emptyDir volumes backed by disk) in Cloud Run services. When enforced, emptyDir volumes must not use the 'Disk' medium. In-memory emptyDir volumes ('Memory') remain allowed.",
+            "constraintDefault": "ALLOW"
+        },
+        {
             "name": "constraints/run.managed.disableInlinedSource",
             "displayName": "Prevent deploying Cloud Run services using inlined source code",
             "description": "When enforced, this constraint prevents deploying Cloud Run services using inlined source code. If this constraint is not enforced, you can deploy Cloud Run services using inlined source by setting the service.template.containers.source_code.inlined_source field using the Cloud Run Admin V2 API.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/run.managed.disableJobsEphemeralDisk",
+            "displayName": "Disable ephemeral disk storage for Cloud Run jobs",
+            "description": "Prevents the use of ephemeral disk storage (emptyDir volumes backed by disk) in Cloud Run jobs. When enforced, emptyDir volumes must not use the 'Disk' medium. In-memory emptyDir volumes ('Memory') remain allowed.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/run.managed.disableWorkerPoolsEphemeralDisk",
+            "displayName": "Disable ephemeral disk storage for Cloud Run worker pools",
+            "description": "Prevents the use of ephemeral disk storage (emptyDir volumes backed by disk) in Cloud Run worker pools. When enforced, emptyDir volumes must not use the 'Disk' medium. In-memory emptyDir volumes ('Memory') remain allowed.",
             "constraintDefault": "ALLOW"
         },
         {
@@ -1305,6 +1329,12 @@
             "name": "constraints/managedkafka.managed.disableKafkaConnectClusterCreateAndUpdate",
             "displayName": "Disable Kafka Connect Cluster Create And Update",
             "description": "When this boolean constraint is enforced, creating andupdating Kafka Connect clusters will be disabled.",
+            "constraintDefault": "ALLOW"
+        },
+        {
+            "name": "constraints/managedkafka.managed.restrictPublicClusters",
+            "displayName": "Restrict Managed Kafka Public Clusters",
+            "description": "When this constraint is enforced, creating or updating Managed Kafka clusters with the public cluster feature enabled is not allowed. This prevents clusters from being accessible over the public internet.",
             "constraintDefault": "ALLOW"
         },
         {
