@@ -1345,6 +1345,11 @@
             "constraintDefault": "ALLOW"
         },
         {
+            "name": "constraints/modelarmor.managed.requireTemplateDataResidencyCompliance",
+            "displayName": "Require Model Armor Template Data Residency Compliance",
+            "description": "Restricts users from setting the data_residency_compliant field to false in Model Armor template."
+        },
+        {
             "name": "constraints/iam.managed.workloadIdentityPoolProviders",
             "displayName": "Allowed external Identity Providers for workloads in Cloud IAM",
             "description": "Identity Providers that can be configured for workload authentication within Cloud IAM, specified by URI/URLs. This constraint is managed by Google.",
